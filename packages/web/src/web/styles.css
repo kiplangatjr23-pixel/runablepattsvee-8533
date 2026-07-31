@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #07100f;
+  --color-surface: #0c1a18;
+  --color-surface-2: #112825;
+  --color-teal: #0e6e63;
+  --color-teal-bright: #17a796;
+  --color-navy: #12324d;
+  --color-gold: #c9a24b;
+  --color-gold-bright: #e7c77a;
+  --color-cream: #f4eee1;
+  --color-muted: #9db3ae;
+}
+
+:root {
+  --radius: 0.9rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-cream);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    font-weight: 300;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    line-height: 1.05;
+  }
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-ink);
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+  .eyebrow {
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--color-gold);
+  }
+  .gold-text {
+    background: linear-gradient(
+      100deg,
+      var(--color-gold-bright),
+      var(--color-gold) 55%,
+      #a9822f
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .gold-rule {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(201, 162, 75, 0.55),
+      transparent
+    );
+  }
+  .card-hairline {
+    border: 1px solid rgba(201, 162, 75, 0.18);
+    background: linear-gradient(
+      180deg,
+      rgba(23, 45, 42, 0.7),
+      rgba(12, 26, 24, 0.7)
+    );
+    backdrop-filter: blur(6px);
+  }
+  .card-hairline:hover {
+    border-color: rgba(201, 162, 75, 0.45);
+  }
+  .noise {
+    background-image: radial-gradient(
+        circle at 20% 20%,
+        rgba(23, 167, 150, 0.08),
+        transparent 45%
+      ),
+      radial-gradient(circle at 80% 0%, rgba(201, 162, 75, 0.07), transparent 40%);
+  }
+}
+
+/* Thin luxury scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+::-webkit-scrollbar-thumb {
+  background: #1c3a36;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-teal);
+}
